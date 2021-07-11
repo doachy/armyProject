@@ -1,20 +1,19 @@
 import './App.css';
 import React, { Component } from 'react';
 
-import { Switch, Route } from 'react-router-dom';
-import ButtonAppBar from './components/Bar.js';
+import { BrowserRouter , Switch, Route } from 'react-router-dom';
 import Navbar from './components/NewBar.js';
+import Home from './components/pages/Homepage/Home.js';
 
 class App extends Component {
 	render() {
 		return (
-			<div className="App">
-				<ButtonAppBar></ButtonAppBar>
+			<BrowserRouter>
 				<Navbar></Navbar>
 				<Switch>
-					<Route path="/" />
+					<Route path='/' exact component={Home} />
 				</Switch>
-			</div>
+			</BrowserRouter>
 		);
 	}
 }
