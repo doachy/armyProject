@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Button } from './button.js';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import { MdFingerprint } from 'react-icons/md';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 
@@ -46,35 +45,35 @@ function Navbar() {
 							</li>
 							<li className="nav-item">
 								<Link
-									to="/services"
+									to="/search"
 									className="nav-links"
 									onClick={closeMobileMenu}
 								>
-									Services
+									Search
 								</Link>
 							</li>
 							<li className="nav-item">
 								<Link
-									to="/products"
+									to="/my-page"
 									className="nav-links"
 									onClick={closeMobileMenu}
 								>
-									Products
+									MyPage
 								</Link>
 							</li>
 							<li className="nav-btn">
 								{button ? (
-									<Link to="/sign-up" className="btn-link">
-										<Button buttonStyle="btn--outline">SIGN UP</Button>
+									<Link to="/sign-in" className="btn-link">
+										<Button buttonStyle="btn--outline">SIGN IN</Button>
 									</Link>
 								) : (
-									<Link to="/sign-up" className="btn-link">
+									<Link to="/sign-in" className="btn-link">
 										<Button
 											buttonStyle="btn--outline"
 											buttonSize="btn--mobile"
 											onClick={closeMobileMenu}
 										>
-											SIGN UP
+											SIGN IN
 										</Button>
 									</Link>
 								)}
