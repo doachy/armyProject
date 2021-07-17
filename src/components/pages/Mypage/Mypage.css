@@ -1,18 +1,17 @@
 .containery{
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
 	height: 80vh;
 	margin-top: 100px;
+	margin-right: 5%;
+	margin-left: 5%;
 }
 .calendar {
 	max-width: 1000px;
-	padding-right: 50px;
 	padding-left: 50px;
-	margin-left: 150px;
 	width: 1000px;
 }
 
 .widget{
-	margin-right: 200px;
 }
