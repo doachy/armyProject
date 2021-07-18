@@ -1,5 +1,6 @@
 import './App.css';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { authService } from './firebase';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/NewBar.js';
@@ -9,23 +10,24 @@ import SignUp from './components/pages/SignUp/SignUp';
 import SignIn from './components/pages/SignIn/SignIn';
 import Mypage from './components/pages/Mypage/Mypage';
 import Search from './components/pages/Search/Search';
+//router 파일 따로 만들기
 
-class App extends Component {
-	render() {
-		return (
-			<BrowserRouter>
-				<Navbar></Navbar>
-				<Switch>
-					<Route path="/" exact component={Home} />
-					<Route path="/sign-in" component={SignIn} />
-					<Route path="/sign-up" component={SignUp} />
-					<Route path="/my-page" component={Mypage} />
-					<Route path="/search" component={Search} />
-				</Switch>
-				<Footer></Footer>
-			</BrowserRouter>
-		);
-	}
+function App() {
+	const [isLoggedIn, setIsLoggedIn] = useState(authService.correntUser);
+
+	return (
+		<BrowserRouter>
+			<Navbar></Navbar>
+			<Switch>
+				<Route path="/" exact component={Home} />
+				<Route path="/sign-in" component={SignIn} />
+				<Route path="/sign-up" component={SignUp} />
+				<Route path="/my-page" component={Mypage} />
+				<Route path="/search" component={Search} />
+			</Switch>
+			<Footer></Footer>
+		</BrowserRouter>
+	);
 }
 
 export default App;
