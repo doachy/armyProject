@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom';
+import { authService } from '../../../firebase';
 
 //login form options done
 
@@ -36,22 +37,34 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
 	const classes = useStyles();
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [newAcount, setNewAcount] = useState(false);
+
 	const onChange = (event) => {
-		const {target: {name, value}} = event;
-		if (name==="email") {
+		const {
+			target: { name, value },
+		} = event;
+		if (name === 'email') {
 			setEmail(value);
-		} else if (password==="password") {
+		} else if (password === 'password') {
 			setPassword(value);
 		}
 	};
-	
-	const onSubmit = (event) => {
+
+	const onSubmit = async (event) => {
 		event.preventDefault();
-	}
-	
+		try {
+			if (newAcount) {
+				await authService.createUserWithEmailAndPassword(email, password);
+			} else {
+				await authService.signInWithEmailAndPassword(email, password);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	return (
 		<Container component="main" maxWidth="xs">
 			<CssBaseline />
