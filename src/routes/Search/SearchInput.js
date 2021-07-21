@@ -1,5 +1,5 @@
 import React from 'react';
-import './SearchInput.css';
+import 'routes/Search/SearchInput.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { BiSearch } from 'react-icons/bi';

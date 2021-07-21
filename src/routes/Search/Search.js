@@ -1,6 +1,6 @@
 import React from 'react';
-import SearchContainer from './SearchContainer.js';
-import SearchInput from './SearchInput.js';
+import SearchContainer from 'routes/Search/SearchContainer.js';
+import SearchInput from 'routes/Search/SearchInput.js';
 
 function Search() {
 	return (
