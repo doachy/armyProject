@@ -5,6 +5,8 @@ import './Navbar.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 
+//IsLoggedIn 상태에 따라서 로그인 버튼의 유무를 결정. 해당 클래스 네임을 display: none으로 설정 후 다른 버튼 대체.
+
 function Navbar() {
 	const [click, setClick] = useState(false);
 	const [button, setButton] = useState(true);

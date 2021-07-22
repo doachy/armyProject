@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom';
-import { authService } from '../../../firebase';
+import { authService } from '../../FBase';
 
 //login form options done
 
@@ -85,7 +85,7 @@ export default function SignIn() {
 						autoComplete="email"
 						autoFocus
 						value={email}
-						onchange={onchange}
+						onChange={onChange}
 					/>
 					<TextField
 						variant="outlined"
@@ -97,14 +97,14 @@ export default function SignIn() {
 						type="password"
 						id="password"
 						value={password}
-						onchange={onchange}
+						onChange={onChange}
 						autoComplete="current-password"
 					/>
 					<FormControlLabel
 						control={<Checkbox value="remember" color="primary" />}
 						label="Remember me"
 					/>
-					<Button
+					<Link to={'/'}><Button
 						type="submit"
 						fullWidth
 						variant="contained"
@@ -112,7 +112,7 @@ export default function SignIn() {
 						className={classes.submit}
 					>
 						Sign In
-					</Button>
+					</Button></Link>
 					<Grid container>
 						<Grid item xs>
 							<Link to="/sign-up" variant="body2">

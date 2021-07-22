@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { authService } from '../../../firebase.js';
+import { authService } from '../../FBase.js';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -130,7 +130,7 @@ export default function SignUp() {
 							/>
 						</Grid>
 					</Grid>
-					<Button
+					<Link to={'/'}><Button
 						type="submit"
 						fullWidth
 						variant="contained"
@@ -138,7 +138,7 @@ export default function SignUp() {
 						className={classes.submit}
 					>
 						Sign Up
-					</Button>
+					</Button></Link>
 					<Grid container justifyContent="flex-end">
 						<Grid item>
 							<Link to="/sign-in" variant="body2">

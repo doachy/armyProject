@@ -1,7 +1,7 @@
 import React from 'react';
-import HeroSection from '../..//HeroSection.js';
+import HeroSection from '../../components/HeroSection.js';
 import { homeObjOne, homeObjTwo, homeObjThree, homeObjFour } from './Data.js';
-import Pricing from '../../Pricing.js';
+import Pricing from '../../components/Pricing.js';
 
 function Home() {
   return (

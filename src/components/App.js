@@ -1,14 +1,15 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { authService } from './firebase';
+import { authService } from '../FBase';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Navbar from './components/NewBar.js';
-import Home from './components/pages/Homepage/Home.js';
-import Footer from './components/pages/Footer/Footer.js';
-import SignUp from './components/pages/SignUp/SignUp';
-import SignIn from './components/pages/SignIn/SignIn';
-import Mypage from './components/pages/Mypage/Mypage';
-import Search from './components/pages/Search/Search';
+import Navbar from './NewBar.js';
+import Home from '../routes/Homepage/Home.js';
+import Footer from '../routes/Footer/Footer.js';
+import SignUp from '../routes/SignUp/SignUp';
+import SignIn from '../routes/SignIn/SignIn';
+import Mypage from '../routes/Mypage/Mypage';
+import Search from '../routes/Search/Search';
+import Loading from './Loading';
 
 //router 파일 따로 만들기
 
@@ -54,7 +55,7 @@ function App() {
 		
 		<BrowserRouter>
 			<Navbar></Navbar>
-			{init ? <AppRouter /> : 'Loading...'}
+			{init ? <AppRouter /> : <Loading />}
 			<Footer></Footer>
 		</BrowserRouter>
 	);
