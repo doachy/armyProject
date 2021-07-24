@@ -40,6 +40,7 @@ export default function SignIn() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [newAcount, setNewAcount] = useState(false);
+	const [error, setError] = useState('');
 
 	const onChange = (event) => {
 		const {
@@ -62,6 +63,7 @@ export default function SignIn() {
 			}
 		} catch (error) {
 			console.log(error);
+			setError(error.message);
 		}
 	};
 
@@ -104,6 +106,7 @@ export default function SignIn() {
 						control={<Checkbox value="remember" color="primary" />}
 						label="Remember me"
 					/>
+					{error}
 					<Button
 						type="submit"
 						fullWidth
