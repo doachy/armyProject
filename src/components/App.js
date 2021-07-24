@@ -16,28 +16,29 @@ import Loading from './Loading';
 // case(1)  router에 로그인,회원가입 포함(버튼 유효) isloggedin 상태변수로 제출,마이페이지 클릭 시 로그인 페이지로 이동
 // case(2) firebase로 auth 유효성 확인 (Loading) 후에 라우터에 로그인, 회원가입 페이지 버튼 제거 -> 그 자리에 사용자 프로필 생성.
 
-function AppRouter() {
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
+function AppRouter({ isLoggedIn }) {
 	return (
 		<>
-				<Switch>
-					{isLoggedIn ? (
-						<>
-							<Route exact path="/" component={Home}></Route>
-						</>
-					) : (
-						<>
-							<Route path="/" exact component={Home} />
-							<Route path="/sign-in" component={SignIn} />
-							<Route path="/sign-up" component={SignUp} />
-							<Route path="/my-page" component={Mypage} />
-							<Route path="/search" component={Search} />
-						</>
-					)}
-				</Switch>
+			<Switch>
+				{isLoggedIn ? (
+					<>
+						<Route exact path="/" component={Home}></Route>
+						<Route path="/my-page" component={Mypage} />
+						<Route path="/search" component={Search} />
+					</>
+				) : (
+					<>
+						<Route path="/" exact component={Home} />
+						<Route path="/sign-in" component={SignIn} />
+						<Route path="/sign-up" component={SignUp} />
+						<Route path="/my-page" component={Mypage} />
+						<Route path="/search" component={Search} />
+					</>
+				)}
+			</Switch>
 		</>
 	);
-};
+}
 
 function App() {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -55,10 +56,9 @@ function App() {
 	}, []);
 
 	return (
-		
 		<BrowserRouter>
-			<Navbar></Navbar>
-			{init ? <AppRouter /> : <Loading />}
+			<Navbar isLoggedIn={isLoggedIn}></Navbar>
+			{init ? <AppRouter isLoggedIn={isLoggedIn} /> : <Loading />}
 			<Footer></Footer>
 		</BrowserRouter>
 	);

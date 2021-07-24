@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
+import Avatar from '@material-ui/core/Avatar';
 
 //IsLoggedIn 상태에 따라서 로그인 버튼의 유무를 결정. 해당 클래스 네임을 display: none으로 설정 후 다른 버튼 대
 
-function Navbar() {
+function Navbar({ isLoggedIn }) {
 	const [click, setClick] = useState(false);
 	const [button, setButton] = useState(true);
 
@@ -46,40 +47,64 @@ function Navbar() {
 								</Link>
 							</li>
 							<li className="nav-item">
-								<Link
-									to="/search"
-									className="nav-links"
-									onClick={closeMobileMenu}
-								>
-									Search
-								</Link>
-							</li>
-							<li className="nav-item">
-								<Link
-									to="/my-page"
-									className="nav-links"
-									onClick={closeMobileMenu}
-								>
-									MyPage
-								</Link>
-							</li>
-							<li className="nav-btn">
-								{button ? (
-									<Link to="/sign-in" className="btn-link">
-										<Button buttonStyle="btn--outline">SIGN IN</Button>
+								{isLoggedIn ? (
+									<Link
+										to="/search"
+										className="nav-links"
+										onClick={closeMobileMenu}
+									>
+										Search
 									</Link>
 								) : (
-									<Link to="/sign-in" className="btn-link">
-										<Button
-											buttonStyle="btn--outline"
-											buttonSize="btn--mobile"
-											onClick={closeMobileMenu}
-										>
-											SIGN IN
-										</Button>
+									<Link
+										to="/sign-in"
+										className="nav-links"
+										onClick={closeMobileMenu}
+									>
+										Search
 									</Link>
 								)}
 							</li>
+							<li className="nav-item">
+								{isLoggedIn ? (
+									<Link
+										to="/my-page"
+										className="nav-links"
+										onClick={closeMobileMenu}
+									>
+										MyPage
+									</Link>
+								) : (
+									<Link
+										to="/sign-in"
+										className="nav-links"
+										onClick={closeMobileMenu}
+									>
+										MyPage
+									</Link>
+								)}
+							</li>
+							{isLoggedIn ? (
+								<Avatar src="../../public/profile.png" />
+							) : (
+								<li className="nav-btn">
+									{button ? (
+										<Link to="/sign-in" className="btn-link">
+											<Button buttonStyle="btn--outline">SIGN IN</Button>
+										</Link>
+									) : (
+										<Link to="/sign-in" className="btn-link">
+											<Button
+												buttonStyle="btn--outline"
+												buttonSize="btn--mobile"
+												onClick={closeMobileMenu}
+											>
+												SIGN IN
+											</Button>
+										</Link>
+									)}
+								</li>
+							)}
 						</ul>
 					</div>
 				</nav>

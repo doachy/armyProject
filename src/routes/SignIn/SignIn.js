@@ -47,7 +47,7 @@ export default function SignIn() {
 		} = event;
 		if (name === 'email') {
 			setEmail(value);
-		} else if (password === 'password') {
+		} else if (name === 'password') {
 			setPassword(value);
 		}
 	};
@@ -104,7 +104,7 @@ export default function SignIn() {
 						control={<Checkbox value="remember" color="primary" />}
 						label="Remember me"
 					/>
-					<Link to={'/'}><Button
+					<Button
 						type="submit"
 						fullWidth
 						variant="contained"
@@ -112,7 +112,7 @@ export default function SignIn() {
 						className={classes.submit}
 					>
 						Sign In
-					</Button></Link>
+					</Button>
 					<Grid container>
 						<Grid item xs>
 							<Link to="/sign-up" variant="body2">

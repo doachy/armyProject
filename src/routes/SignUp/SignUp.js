@@ -130,7 +130,7 @@ export default function SignUp() {
 							/>
 						</Grid>
 					</Grid>
-					<Link to={'/'}><Button
+					<Button
 						type="submit"
 						fullWidth
 						variant="contained"
@@ -138,7 +138,7 @@ export default function SignUp() {
 						className={classes.submit}
 					>
 						Sign Up
-					</Button></Link>
+					</Button>
 					<Grid container justifyContent="flex-end">
 						<Grid item>
 							<Link to="/sign-in" variant="body2">
