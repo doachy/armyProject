@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { authService } from '../FBase';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Navbar from './NewBar.js';
 import Home from '../routes/Homepage/Home.js';
 import Footer from '../routes/Footer/Footer.js';
@@ -23,25 +23,23 @@ function AppRouter({ isLoggedIn }) {
 				{isLoggedIn ? (
 					<>
 						<Route path="/" exact component={Home}></Route>
-						<Route path="/my-page" component={Mypage} />
-						<Route path="/search" component={Search} />
+						<Route path="/my-page" exact component={Mypage} />
+						<Route path="/search" exact component={Search} />
+						<Redirect from='*' to='/' />
 					</>
 				) : (
 					<>
 						<Route path="/" exact component={Home} />
-						<Route path="/sign-in" component={SignIn} />
-						<Route path="/sign-up" component={SignUp} />
-						<Route path="/my-page" component={Mypage} />
-						<Route path="/search" component={Search} />
+						<Route path="/sign-in" exact component={SignIn} />
+						<Route path="/sign-up" exact component={SignUp} />
+						<Route path="/my-page" exact component={Mypage} />
+						<Route path="/search" exact component={Search} />
 					</>
 				)}
 			</Switch>
 		</>
 	);
 }
-
-import { authService } from 'FBase';
-import AppRouter from 'components/Router';
 
 function App() {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);

@@ -12,7 +12,6 @@ import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom';
 import { authService, firebaseInstance } from '../../FBase';
 import { IoLogoGoogle } from 'react-icons/io5';
-import { authService } from 'FBase';
 
 //login form options done
 
