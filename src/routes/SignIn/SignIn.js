@@ -10,7 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom';
-import { authService } from '../../FBase';
+import { authService, firebaseInstance } from '../../FBase';
+import { IoLogoGoogle } from 'react-icons/io5';
 
 //login form options done
 
@@ -33,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
 	submit: {
 		margin: theme.spacing(3, 0, 2),
 	},
+	iconsGoogle: {
+		marginRight: theme.spacing(1),
+	},
 }));
 
 export default function SignIn() {
@@ -41,6 +45,18 @@ export default function SignIn() {
 	const [password, setPassword] = useState('');
 	const [newAcount, setNewAcount] = useState(false);
 	const [error, setError] = useState('');
+
+	const onSocialClick = async (event) => {
+		const {
+			target: { name },
+		} = event;
+
+		let provider;
+
+		provider = new firebaseInstance.auth.GoogleAuthProvider();
+		const data = await authService.signInWithPopup(provider);
+		console.log(data);
+	};
 
 	const onChange = (event) => {
 		const {
@@ -128,6 +144,17 @@ export default function SignIn() {
 							</Link>
 						</Grid>
 					</Grid>
+					<Button
+						onClick={onSocialClick}
+						type="button"
+						fullWidth
+						variant="outlined"
+						color="secondary"
+						className={classes.submit}
+					>
+						<IoLogoGoogle className={classes.iconsGoogle} />
+						Login with Google account
+					</Button>
 				</form>
 			</div>
 		</Container>
