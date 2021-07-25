@@ -1,6 +1,6 @@
 import React from 'react';
-import './HeroSection.css';
-import { Button } from './button.js';
+import 'components/HeroSection.css';
+import { Button } from 'components/button.js';
 import { Link } from 'react-router-dom';
 
 function HeroSection({

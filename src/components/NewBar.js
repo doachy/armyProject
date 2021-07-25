@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from './button.js';
+import { Button } from 'components/button.js';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
+import 'components/Navbar.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import Avatar from '@material-ui/core/Avatar';

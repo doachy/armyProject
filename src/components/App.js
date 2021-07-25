@@ -40,6 +40,9 @@ function AppRouter({ isLoggedIn }) {
 	);
 }
 
+import { authService } from 'FBase';
+import AppRouter from 'components/Router';
+
 function App() {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [init, setInit] = useState(false);
