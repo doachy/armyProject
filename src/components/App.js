@@ -9,6 +9,7 @@ import SignUp from '../routes/SignUp/SignUp';
 import SignIn from '../routes/SignIn/SignIn';
 import Mypage from '../routes/Mypage/Mypage';
 import Search from '../routes/Search/Search';
+import Submit from '../routes/Submit/Submit';
 import Loading from './Loading';
 
 //router 파일 따로 만들기
@@ -25,6 +26,7 @@ function AppRouter({ isLoggedIn }) {
 						<Route path="/" exact component={Home}></Route>
 						<Route path="/my-page" exact component={Mypage} />
 						<Route path="/search" exact component={Search} />
+						<Route path="/submit" exact component={Submit} />
 						<Redirect from='*' to='/' />
 					</>
 				) : (

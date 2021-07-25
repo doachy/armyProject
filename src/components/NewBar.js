@@ -83,7 +83,6 @@ function Navbar({ isLoggedIn }) {
 								</Link>
 							</li>
 							<li className="nav-item">
-								{isLoggedIn ? (
 									<Link
 										to="/search"
 										className="nav-links"
@@ -91,13 +90,24 @@ function Navbar({ isLoggedIn }) {
 									>
 										Search
 									</Link>
+
+							</li>
+							<li className="nav-item">
+								{isLoggedIn ? (
+									<Link
+										to="/submit"
+										className="nav-links"
+										onClick={closeMobileMenu}
+									>
+										Submit
+									</Link>
 								) : (
 									<Link
 										to="/sign-in"
 										className="nav-links"
 										onClick={closeMobileMenu}
 									>
-										Search
+										Submit
 									</Link>
 								)}
 							</li>
