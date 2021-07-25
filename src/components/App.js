@@ -22,7 +22,7 @@ function AppRouter({ isLoggedIn }) {
 			<Switch>
 				{isLoggedIn ? (
 					<>
-						<Route exact path="/" component={Home}></Route>
+						<Route path="/" exact component={Home}></Route>
 						<Route path="/my-page" component={Mypage} />
 						<Route path="/search" component={Search} />
 					</>
