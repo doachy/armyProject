@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {dbService} from 'FBase';
+import { dbService } from 'FBase';
+import './Homeworks.css';
 
 function Homeworks() {
 	const [homework, setHomework] = useState('');
@@ -13,7 +14,7 @@ function Homeworks() {
 				id: document.id,
 			};
 
-			setHomeworks((prev) => [document.data(), ...prev]);
+			setHomeworks((prev) => [homeworkObject, ...prev]);
 		});
 	};
 
@@ -23,10 +24,30 @@ function Homeworks() {
 
 	return (
 		<>
-			<div>
+			<div class='homework-container'>
 				{homeworks.map((homework) => (
-					<div key={homeworks.id}>
-						<h1>{homework.homework}</h1>
+					<div class="card-view" key={homeworks.id}>
+						<div class="card-header missionImpossible"></div>
+						<div class="card-movie-content">
+							<div class="card-movie-content-head">
+								<a href="#">
+									<h3 class="card-movie-title">{homework.homework}</h3>
+								</a>
+								<div class="ratings">
+									<span>8.8</span>/10
+								</div>
+							</div>
+							<div class="card-movie-info">
+								<div class="movie-running-time">
+									<label>Last update</label>
+									<span>Sun 8 Sept - 10:00PM</span>
+								</div>
+								<div class="movie-running-time">
+									<label>Running time</label>
+									<span>2hr 09min</span>
+								</div>
+							</div>
+						</div>
 					</div>
 				))}
 			</div>

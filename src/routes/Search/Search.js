@@ -6,9 +6,8 @@ import Homeworks from 'routes/Search/Homeworks.js';
 function Search() {
 	return (
 		<>
-			<Homeworks />
 			<SearchInput />
-			<SearchContainer />
+			<Homeworks />
 		</>
 	);
 }
