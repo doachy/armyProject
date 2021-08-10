@@ -1,0 +1,71 @@
+.submit-wrapper {
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.submit-card-view {
+	background: #ffffff;
+	width: 100%;
+	max-width: 1240px;
+	border-radius: 10px;
+	display: block;
+	box-sizing: border-box;
+	box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.submit-card-header {
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.submit-avatar {
+	float: left;
+	margin: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.submit-name {
+}
+
+.submit-duration {
+}
+
+.submit-setting-menu {
+	font-size: 2em;
+	float: right;
+	margin: 10px;
+	position: relative;
+	top: -40px;
+}
+
+.submit-card-content {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.card-submit {
+}
+
+.submit-input {
+	width: 80%;
+	height: 45px;
+	font-size: 15px;
+	font-weight: 700;
+	border-radius: 6px;
+	border: 0;
+	outline: 0;
+}
+
+.submit-button {
+	font-size: 15px;
+	font-weight: 700;
+	border-radius: 6px;
+	border: 0;
+	outline: 0;
+}
